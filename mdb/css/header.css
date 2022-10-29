@@ -33,7 +33,7 @@
     float: right
 }
 
-#header-content button{
+#header-content #right a{
     border: none;
     background-color: transparent;
     color: white;
@@ -159,7 +159,16 @@
     }
 }
 
-@media only screen and (max-width: 330px) {
+h2{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    margin-top: 0;
+}
+
+@media only screen and (max-width: 395px) {
     #logo-a{
         display: none;
     }

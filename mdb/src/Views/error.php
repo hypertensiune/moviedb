@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <?php include 'src/Views/header.html'; ?>
+    <?php include 'src/Views/header.php'; ?>
 
     <div id="content">
         The page you requested doesn't exist.

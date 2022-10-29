@@ -109,6 +109,7 @@
     color: white;
     font-size: 12px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 #user-score-tag {
@@ -478,6 +479,13 @@ a.more:hover{
     opacity: 0.5;
 }
 
+#seasons{
+    margin-top: 50px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 40px;
+}
+
 @media only screen and (max-width: 1400px) {
     #content-wrapper {
         width: 95%;
@@ -527,4 +535,60 @@ a.more:hover{
     #movie-content {
         top: 113px;
     }
+}
+
+.season-card{
+    position: relative;
+    width: 100%;
+    height: 195px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgb(227, 227, 227);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.season-card .wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.season-card .wrapper .image{
+    height: 100%;
+}
+
+.season-card .wrapper .details{
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.details h2{
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin: 0;
+}
+
+.details a{
+    text-decoration: none;
+    color: black;
+}
+
+.details span{
+    color: #999;
+}
+
+.details p{
+    display: inline-block;
+    font-size: 1em;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }

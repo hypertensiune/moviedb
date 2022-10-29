@@ -91,7 +91,7 @@
 </head>
 <body>
     
-    <?php include 'src/Views/header.html'; ?>
+    <?php include 'src/Views/header.php'; ?>
 
     <div id="container">
         <div id="wrapper">
@@ -109,7 +109,7 @@
                     <div id="personal-info">
                         <p><strong>Known For</strong><br><?php echo $PERSON['known_for_department']; ?></p>
                         <p><strong>Known Credits</strong><br><?php echo count($PERSON_CREDITS['cast']); ?></p>
-                        <p><strong>Gender</strong><br><?php echo $PERSON['gender'] == 1 ? "Female" : "Male"; ?></p>
+                        <p><strong>Gender</strong><br><?php if($PERSON['gender'] == 1) echo "Female"; else if($PERSON['gender'] == 2) echo "Male"; else echo "Not set"; ?></p>
                         <p><strong>Birthday</strong><br><?php echo $PERSON['birthday'] . " (" . date("Y") - substr($PERSON['birthday'], 0, 4) . " years old)"; ?></p>
                         <p><strong>Place of Birth</strong><br><?php echo $PERSON['place_of_birth']; ?></p>
                     </div>

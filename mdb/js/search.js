@@ -1,5 +1,4 @@
 let currentPage = url.searchParams.get('page') || 1;
-let url = new URL(window.location);
 
 $(() => {
 

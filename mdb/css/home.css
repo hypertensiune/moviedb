@@ -82,14 +82,137 @@
     color: rgba(0, 0, 0, 0,5);
 }
 
+#more-content{
+    top: 30px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#more-content h2{
+    font-size: 24px;
+    margin: 0;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+#more-wrapper{
+    position: relative;
+    width: 1324px;
+    display: flex;
+    flex-direction: column;
+}
+
+#trending, #popular{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#trending-header, #popular-header{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.selector{
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.selector a{
+    padding: 4px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.selector a.active{
+    background-color: var(--main-header-color);
+    color: #c0fecf;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+ol.results-list{
+    position: relative;
+    width: 100%;
+    display: none;
+    list-style-type: none;
+    padding: 0 0 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+
+ol.selected{
+    display: flex;
+}
+
+li.card{
+    position: relative;
+    margin-right: 30px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 150px;
+    min-width: 150px;
+}
+
+li.card img{
+    width: 100%;
+    height: 225px;
+    border-radius: 8px;
+}
+
+li.card a{
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+li.card p{
+    margin: 0;
+}
+
+.should-fade.is-fading:after {
+    transition: linear 0.3s;
+    opacity: 1;
+}
+
+.should-fade.is-hidden:after {
+    transition: linear 0.3s;
+    opacity: 0;
+}
+
+.should-fade:after {
+    content: '';
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 80%);
+}
+
 @media only screen and (max-width: 1400px){
     #welcome-wrapper{
         width: 100%;
+    }
+
+    #more-wrapper{
+        width: 95%;
     }
 }
 
 @media only screen and (max-width: 560px){
     #welcome-content{
         top: 63px;
+    }
+
+    #more-content{
+        top: 93px;
     }
 }

@@ -18,21 +18,65 @@
     $rgx_tv_iframe = "~\/tv\/[0-9]+\/get_iframe~";
     $rgx_tv_cast = "~\/tv\/[0-9]+\/cast$~";
     $rgx_tv_reviews = "~\/tv\/[0-9]+\/reviews$~";
-
+    $rgx_tv_seasons = "~\/tv\/[0-9]+\/seasons$~";
     $rgx_person = "~\/person\/[0-9]+$~";
+
+    $rgx_user = "~\/u\/[A-Za-z0-9]+$~";
+    $rgx_user_controller = "~\/u\/[A-Za-z0-9]+\/[a-z]+$~";
 
     session_start();
 
     function check(...$p){
         foreach($p as $v){
-            if($v == null)
+            if($v == null || (array_key_exists("success", $v) && !$v['success']))
                 return false;
         }
         return true;
     }
 
     $router->get("/mdb/", function(){
+        $TRENDING_TODAY = getTrending("day");
+        $TRENDING_WEEK = getTrending("week");
+
+        $POPULAR_MOVIES = Movie::getPopular();
+        $POPULAR_TV = TV::getPopular();
+
         require "src/Views/home.php";
+    });
+
+    $router->get("/mdb/login", function(){
+        require "src/Views/account/login.php";
+    });
+
+    $router->get("/mdb/logout", function(){
+        unset($_SESSION['username']);
+        header("Location: /mdb/");
+        die();
+    });
+
+    $router->get("/mdb/register", function(){
+        require "src/Views/account/register.php";
+    });
+
+    $router->get($rgx_user, function(){
+        if(isset($_SESSION['username']))
+            require "src/Views/account/user.php";
+        else{
+            require "src/Views/error.php";
+        }
+    }, true);
+
+    $router->post($rgx_user_controller, function(){
+        if(isset($_SESSION['username']))
+            require "src/Controllers/user.php";
+        else{
+            require "src/Views/error.php";
+        }
+    }, true);
+
+
+    $router->post("/mdb/login_register_controller", function(){
+        require "src/Controllers/login_register_controller.php";
     });
 
     // ====================== SEARCH ================
@@ -86,7 +130,7 @@
 
         $TYPE = "movie";
 
-        require "src/Views/movie.php";
+        require "src/Views/movie/movie.php";
     }, true);
 
     $router->get($rgx_movie_load_more, function(){
@@ -133,7 +177,7 @@
         $_SESSION['MOVIE_KEYWORDS'] = $MOVIE_KEYWORDS;
         $_SESSION['MOVIE_REVIEWS'] = $MOVIE_REVIEWS;
         
-        require "src/Views/movie_detailed.php";
+        require "src/Views/movie/movie_detailed.php";
 
     }, true);
 
@@ -155,7 +199,7 @@
             }
         }
 
-        include "src/Views/cast.php";
+        include "src/Views/movie/cast.php";
 
     }, true);
 
@@ -177,7 +221,7 @@
             }
         }
 
-        include "src/Views/reviews.php";
+        include "src/Views/movie/reviews.php";
 
     }, true);
 
@@ -187,7 +231,7 @@
 
         $TYPE = "MOVIE";
 
-        include "src/Views/iframe.php";
+        include "src/Views/movie/iframe.php";
 
     }, true);
 
@@ -210,7 +254,7 @@
 
         $TYPE = "tv";
 
-        require "src/Views/movie.php";
+        require "src/Views/movie/movie.php";
     }, true);
 
     $router->get($rgx_tv_load_more, function(){
@@ -257,7 +301,7 @@
         $_SESSION['MOVIE_KEYWORDS'] = $MOVIE_KEYWORDS;
         $_SESSION['MOVIE_REVIEWS'] = $MOVIE_REVIEWS;
 
-        include "src/Views/movie_detailed.php";
+        include "src/Views/movie/movie_detailed.php";
 
     }, true);
 
@@ -279,7 +323,7 @@
             }
         }
 
-        include "src/Views/cast.php";
+        include "src/Views/movie/cast.php";
 
     }, true); 
 
@@ -301,8 +345,26 @@
             }
         }
 
-        include "src/Views/reviews.php";
+        include "src/Views/movie/reviews.php";
 
+    }, true);
+
+    $router->get($rgx_tv_seasons, function(){
+        $movie_id = basename(substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], "/seasons")));
+
+        if(!isset($_SESSION['id']) || $_SESSION['TYPE'] != "TV"){
+            $MOVIE = TV::getDetails($movie_id);
+        }
+        else{
+            $MOVIE = $_SESSION['MOVIE'];
+
+            if(!check($MOVIE)){
+                require 'src/Views/error.php';
+                die();
+            }
+        }
+
+        include "src/Views/movie/seasons.php";
     }, true);
 
     $router->get($rgx_tv_iframe, function(){
@@ -311,7 +373,7 @@
         
         $TYPE = "TV";
 
-        include "src/Views/iframe.php";
+        include "src/Views/movie/iframe.php";
 
     }, true);
 

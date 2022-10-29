@@ -74,10 +74,11 @@
         }
 
         public static function echoCards($title, $release_date, $poster_path, $id){
+            $release_date = date('F j, Y', strtotime($release_date));
             echo <<<HTML
                 <div class="card">
                     <div class="image">
-                        <a href="./tv/$id">
+                        <a href="/mdb/tv/$id">
                             <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/$poster_path"></img>
                         </a>
                     </div>

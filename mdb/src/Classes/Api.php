@@ -12,6 +12,17 @@
     include 'src/Classes/person.class.php';
     include 'src/Classes/search.class.php';
 
+    function getTrending($time_period){
+        $API_BASE_URL = "https://api.themoviedb.org/3/trending/";
+        $API_KEY = "d5da50d38ab038fd755da73db3a0f1df";
+
+        $curl = curl_init($API_BASE_URL . "all/" . $time_period . "?api_key=" . $API_KEY);
+
+        $res = EXEC_CURL($curl);
+
+        return json_decode($res, true);
+    }
+
     $languages = array(
         "aa" => "Afar",
         "ab" => "Abkhazian",

@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <?php include 'src/Views/header.html'; ?>
+    <?php include 'src/Views/header.php'; ?>
 
     <div id="search-results-container">
         <div id="search-results-wrapper">
@@ -57,6 +57,7 @@
     <?php include 'src/Views/footer.html'; ?>
 
     <script>
+        let url = new URL(window.location);
         let filter = url.searchParams.get('filter') || <?=json_encode($filter)?>;
     </script>
 
