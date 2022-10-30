@@ -1,0 +1,132 @@
+#movie-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    background-image: linear-gradient(to right, rgba(var(--primaryColor), 1) 150px, rgba(var(--primaryColor), 0.84) 100%);
+}
+
+#wrapper {
+    width: 1324px;
+    margin: 15.5px 0;
+    display: flex;
+    justify-content: left;
+}
+
+#movie-details {
+    height: 87px;
+    margin-left: 20px;
+    text-align: left;
+    line-height: 43.5px;
+}
+
+#poster-img {
+    border-radius: 5px;
+}
+
+#title {
+    font-weight: 700;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#year {
+    font-weight: 400;
+    font-size: 35px;
+    opacity: 0.8;
+}
+
+#back {
+    font-weight: 600;
+    font-size: 17px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#reviews-holder {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#reviews-wrapper {
+    width: 1324px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.review-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.review-card {
+    position: relative;
+    min-height: 146px;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.review-card.full{
+    overflow-x: scroll;
+}
+
+.review-card.full::before{
+    content: '\00d7';
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    font-size: 40px;
+    float: right;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.review-content {
+    position: relative;
+    margin-left: 80px;
+}
+
+#readFullReview{
+    position: fixed;
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+@media only screen and (max-width: 1400px) {
+    #wrapper,
+    #reviews-wrapper {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 880px){
+    .review-content {
+        margin: 20px 5%;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    #movie-top{
+        top: 113px;
+    }
+
+    #reviews-holder{
+        top: 163px;
+    }
+}

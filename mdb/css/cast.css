@@ -1,0 +1,145 @@
+#movie-top{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    background-image: linear-gradient(to right, rgba(var(--primaryColor), 1) 150px, rgba(var(--primaryColor), 0.84) 100%);
+}
+
+#wrapper{
+    width: 1324px;
+    margin: 15.5px 0;
+    display: flex;
+    justify-content: left;
+}
+
+#movie-details{
+    height: 87px;
+    /* float: left; */
+    margin-left: 20px;
+    text-align: left;
+    line-height: 43.5px;
+}
+
+#poster-img{
+    /* float: left; */
+    border-radius: 5px;
+}
+
+#title{
+    font-weight: 700;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#year{
+    font-weight: 400;
+    font-size: 35px;
+    opacity: 0.8;
+}
+
+#back{
+    font-weight: 600;
+    font-size: 17px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+ol.people{
+    padding: 0;
+    list-style-type: none;
+}
+
+ol.people img{
+    border-radius: 4px;
+}
+
+ol.people li{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+ol.people li div{
+    width: auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 68px;
+}
+
+ol.people li div.info{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 14px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+ol.people li div.info p{
+    width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    margin: 0;
+    padding: 0 10px;
+}
+
+ol.people li div.info p a{
+    font-weight: bold;
+}
+
+#list-container{
+    position: relative;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#list-wrapper{
+    width: 1324px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1400px) {
+    #wrapper, #list-wrapper{
+        width: 95%;
+    }
+} 
+
+@media only screen and (max-width: 680px){
+    #list-wrapper{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    #movie-top{
+        top: 113px;
+    }
+
+    #title, #year{
+        font-size: calc(0.7em + 4vw);
+    }
+
+    #list-container{
+        top: 163px;
+    }
+}
+
+@media only screen and (max-width: 280px){
+    #movie-details{
+        float: right;
+        margin: 0;
+        line-height: unset;
+    }
+}

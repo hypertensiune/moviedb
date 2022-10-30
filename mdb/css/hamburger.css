@@ -1,0 +1,63 @@
+#nav{
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 3;
+
+    cursor: pointer;
+}
+
+#nav input{
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+
+    top: -5px;
+    left: -9px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    z-index: 4;
+}
+
+#nav span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background-color: white;
+    border-radius: 3px;
+    
+    z-index: 1;
+}
+
+#nav #s1{
+    transform-origin: 0%, 0%;
+    transition: transform 0.4s;
+}
+
+#nav #s2{
+    transition: transform 0.2s;
+}
+
+#nav #s3{
+    transform-origin: 0%, 100%;
+    transition: transform 0.4s;
+}
+
+.s1{
+    transform: translate(0px, 9px) rotate(45deg);
+}
+
+.s2{
+    transform: scaleX(0);
+}
+
+.s3{
+    transform: translate(0px, -9px) rotate(-45deg);
+}

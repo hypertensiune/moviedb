@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+:root{
+    --main-header-color: #032541;
+    --sec-header-color: #01b4e4;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 20px;
+}
+
+html{
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    --columns: 5;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width: 1340px){
+    html{
+        --columns: 4;
+    }
+}
+
+@media only screen and (max-width: 957px){
+    html{
+        --columns: 3;
+    }
+}
+
+@media only screen and (max-width: 1400px){
+    #wrapper{
+        width: 95%;
+    }
+}
