@@ -1,4 +1,4 @@
-# moviedb
+# moviedb - php movie database
 
 ## Description
 
