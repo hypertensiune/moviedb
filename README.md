@@ -23,8 +23,22 @@ It also has a bookmarking and favorites system. For this to work it needs a SQL 
 
 ## Usage
 
-Clone the repository and place the ***mdb*** directory inside your server's ***htdocs*** directory.
+- Donwload or clone the repository and place the ***mdb*** directory inside your server's ***htdocs*** directory.
+- Create the ***mdb/.htaccess*** file with the following content:
+```
+RewriteEngine On
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php [QSA,L]
+```
+- Create the ***mdb/src/.htaccess*** with the following content:
+```
+Require all denied
+```
+- *Database login credentials need to be added in ***mdb/src/config.ini***
+
+## Screeshots
 
 <p align="center">
   <img src="https://github.com/hypertensiune/moviedb/blob/main/screenshots/Screenshot_1.png"/>
