@@ -9,7 +9,7 @@ Most of the features available on [themoviedb.org](themoviedb.org) are avaialabe
 - Daily & weekly trends and popular movies / tv shows
 - Reading reviews
 
-It also has a bookmarking and favorites system. For this to work it needs a SQL database with the following table
+*It also has a bookmarking and favorites system. For this to work it needs a SQL database with the following table
 
 ```
   CREATE TABLE table_name (
