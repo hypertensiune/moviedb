@@ -9,7 +9,7 @@ Most of the features available on [themoviedb.org](themoviedb.org) are avaialabe
 - Daily & weekly trends and popular movies / tv shows
 - Reading reviews
 
-It also has a bookmarking and favorites system. For this to work it needs a database with the following table
+It also has a bookmarking and favorites system. For this to work it needs a SQL database with the following table
 
 ```
   CREATE TABLE table_name (
@@ -20,6 +20,10 @@ It also has a bookmarking and favorites system. For this to work it needs a data
   )
   
 ```
+
+## Usage
+
+Clone the repository and place the ***mdb*** directory inside your server's ***htdocs*** directory.
 
 
 <p align="center">
