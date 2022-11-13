@@ -9,17 +9,6 @@ Most of the features available on [themoviedb.org](themoviedb.org) are avaialabe
 - Daily & weekly trends and popular movies / tv shows
 - Reading reviews
 
-*It also has a bookmarking and favorites system. For this to work it needs a SQL database with the following table
-
-```
-  CREATE TABLE table_name (
-    id INT AUTO_INCREMENT PRIMAY KEY,
-    username VARCHAR(50),
-    email VARCHAR(100),
-    password VARCHAR(255)
-  )
-  
-```
 
 ## Usage
 
@@ -36,7 +25,6 @@ RewriteRule ^(.+)$ index.php [QSA,L]
 ```
 Require all denied
 ```
-- *Database login credentials need to be added in ***mdb/src/config.ini***
 
 ## Screeshots
 
