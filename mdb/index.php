@@ -104,11 +104,11 @@
         }
 
         if($_GET['filter'] == "popular")
-            $RES = Movie::getPopular();
+            $RES = Movie::getPopular($_GET['page']);
         else if($_GET['filter'] == "upcoming")
-            $RES = Movie::getUpcoming();
+            $RES = Movie::getUpcoming($_GET['page']);
         else if($_GET['filter'] == "top-rated")
-            $RES = Movie::getTopRated();
+            $RES = Movie::getTopRated($_GET['page']);
 
         Movie::echoCardsAll($RES['results']);
 
@@ -229,11 +229,11 @@
         }
 
         if($_GET['filter'] == "popular")
-            $RES = TV::getPopular();
+            $RES = TV::getPopular($_GET['page']);
         else if($_GET['filter'] == "upcoming")
-            $RES = TV::getUpcoming();
+            $RES = TV::getUpcoming($_GET['page']);
         else if($_GET['filter'] == "top-rated")
-            $RES = TV::getTopRated();
+            $RES = TV::getTopRated($_GET['page']);
 
         TV::echoCardsAll($RES['results']);
 
